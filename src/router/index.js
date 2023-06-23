@@ -6,6 +6,7 @@ import AddLog from '../views/AddLog.vue'
 import AddUser from '../views/AddUser.vue'
 import AnalysisLog from '../views/AnalysisLog.vue'
 import SearchUser from '../views/SearchUser.vue'
+import AddResidence from '../views/AddResidence.vue'
 
 
 
@@ -43,15 +44,15 @@ const routes = [
     component: Home,
     children: [
       {
-        path: '/addlog',
-        name: '添加日志',
-        component: AddLog,
+        path: '/home/addresidence',
+        name: '小区管理',
+        component: AddResidence,
         meta:{
-          icon:'el-icon-info'
+          icon:'el-icon-office-building'
         }
       },
       {
-        path: '/adduser',
+        path: '/home/adduser',
         name: '添加用户',
         component: AddUser,
         meta:{
@@ -59,7 +60,15 @@ const routes = [
         }
       },
       {
-        path: '/analysislog',
+        path: '/home/addlog',
+        name: '添加日志',
+        component: AddLog,
+        meta:{
+          icon:'el-icon-info'
+        }
+      },
+      {
+        path: '/home/analysislog',
         name: '分析日志',
         component: AnalysisLog,
         meta: {
@@ -67,13 +76,13 @@ const routes = [
         }
       },
       {
-        path: '/searchuser',
+        path: '/home/searchuser',
         name: '查询用户',
         component: SearchUser,
         meta:{
           icon:'el-icon-search'
         }
-      }
+      },
     ]
   },
   {

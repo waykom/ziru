@@ -42,20 +42,21 @@ export default {
   name: "Login",
   data() {
     return {
-      username: "",
-      password: "",
+      username: "admin",
+      password: "123456",
       loading: false,
     };
   },
   methods: {
     login: function () {
       this.loading = true;
-      if(!this.username&&!this.password){
-        this.$message.error('请输入信息');
+      if (!this.username && !this.password) {
+        this.$message.error("请输入信息");
         this.loading = false;
-        return
+        return;
       }
-      axios.post(
+      axios
+        .post(
           "/doLogin",
           qs.stringify({
             name: this.username,
@@ -72,11 +73,14 @@ export default {
               );
             }
             this.loading = false;
-            this.$router.replace('/home')
-          }
-          else{
+            this.$message({
+              type: "success",
+              message: "登录成功！",
+            });
+            this.$router.replace("/home");
+          } else {
             this.loading = false;
-            this.$message.error('错了哦，这是一条错误消息');
+            this.$message.error("错了哦，这是一条错误消息");
           }
         })
         .catch((error) => {
@@ -93,7 +97,7 @@ export default {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-70%);
+  transform: translate(-50%, -70%);
   width: 500px;
   height: 300px;
   display: flex;
@@ -101,7 +105,7 @@ export default {
   justify-content: space-around;
   text-align: center;
 }
-.box-card h2{
+.box-card h2 {
   margin-bottom: 20px;
 }
 .inputbox {
